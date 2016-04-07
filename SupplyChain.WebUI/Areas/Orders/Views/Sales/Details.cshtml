@@ -3,30 +3,27 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
 <div>
-    <h4>SalesOrderHeader</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Customer.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Customer.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.OrderDate)
-        </dd>
-
-    </dl>
+    <h2>Customer: <span>@Model.Customer.Name</span></h2>
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Subtotal</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var lineItems in Model.OrderDetails)
+            {
+                <tr>
+                    <td>@lineItems.Product.Name</td>
+                    <td>$@(lineItems.Product.Price * lineItems.Quantity)</td>
+                    <td>@lineItems.Quantity</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |

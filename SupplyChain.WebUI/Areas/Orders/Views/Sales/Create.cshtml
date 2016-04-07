@@ -185,13 +185,13 @@
                     } : undefined
                 });
                 var data = JSON.stringify(dataToSave);
-                console.log("saving", data);
-                self.lines = ko.observableArray([new CartLine()]);;
+                var antiForgeryToken = $("input[name='__RequestVerificationToken']").val();
+                var customerId = self.customer().Id;
+                //self.lines = ko.observableArray([new CartLine()]);;
                 $.ajax({
                     type: "POST",
-                    url: "@Url.Action("Save", "ShoppingCart")",
-                    contentType: "application/json; charset=utf-8",
-                    data: JSON.stringify(dataToSave),
+                    url: "@Url.Action("Create", "Sales")",
+                    data: {__RequestVerificationToken: antiForgeryToken, salesOrderDetails: dataToSave, customerId: customerId},
                     dataType: "json"
                 }).done(function (data) {
                     console.log(data);

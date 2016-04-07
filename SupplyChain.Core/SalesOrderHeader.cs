@@ -18,7 +18,7 @@ namespace SupplyChain.Core
 
         public virtual Customer Customer { get; set; }
        
-        public ICollection<SalesOrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<SalesOrderDetail> OrderDetails { get; set; }
 
     }
 }

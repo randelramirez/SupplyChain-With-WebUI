@@ -45,12 +45,14 @@ namespace SupplyChain.WebUI.Areas.Orders.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SalesOrderHeader salesOrderHeader = context.SalesOrderHeaders.Find(id);
+            SalesOrderHeader salesOrderHeader = this.service.Find(id.GetValueOrDefault());
             if (salesOrderHeader == null)
             {
                 return HttpNotFound();
             }
-            return View(salesOrderHeader);
+            //var sales = this.service.One(s => s.Id == salesOrderHeader.Id && salesOrderHeader.CustomerId == s.Customer.Id, s => s.OrderDetails, s => s.Customer);
+            var sales = this.service.One(s => s.Id == salesOrderHeader.Id,s => s.OrderDetails);
+            return View(sales);
         }
 
         // GET: Orders/Sales/Create
@@ -67,17 +69,21 @@ namespace SupplyChain.WebUI.Areas.Orders.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,OrderDate,CustomerId")] SalesOrderHeader salesOrderHeader)
+        public ActionResult Create(List<SalesOrderDetail> salesOrderDetails, int customerId)
         {
             if (ModelState.IsValid)
             {
-                context.SalesOrderHeaders.Add(salesOrderHeader);
-                context.SaveChanges();
+                //context.SalesOrderHeaders.Add(salesOrderHeader);
+                //context.SaveChanges();
+                var sales = new SalesOrderHeader { OrderDate = DateTime.UtcNow, CustomerId = customerId, OrderDetails = salesOrderDetails };
+                this.service.Create(sales);
+                this.unitOfWork.Save();
+   
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CustomerId = new SelectList(context.Customers, "Id", "Name", salesOrderHeader.CustomerId);
-            return View(salesOrderHeader);
+            //ViewBag.CustomerId = new SelectList(this.service..Customers, "Id", "Name", salesOrderHeader.CustomerId);
+            return View();
         }
 
         // GET: Orders/Sales/Edit/5
