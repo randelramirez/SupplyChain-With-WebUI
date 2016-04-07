@@ -6,27 +6,28 @@
 
 <h2>Details</h2>
 
+
+
 <div>
-    <h4>PurchaseOrderHeader</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Supplier.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Supplier.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.OrderDate)
-        </dd>
-
-    </dl>
+    <h2>Supplier: <span>@Model.Supplier.Name</span></h2>
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Subtotal</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var lineItem in Model.PurchaseOrderDetails) {
+                <tr>
+                    <td>@lineItem.Product.Name</td>
+                    <td>$@(lineItem.Product.Price * lineItem.Quantity)</td>
+                    <td>@lineItem.Quantity</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |

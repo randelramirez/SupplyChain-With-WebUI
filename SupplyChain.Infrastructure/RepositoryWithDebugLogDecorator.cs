@@ -68,6 +68,11 @@ namespace SupplyChain.Infrastructure
             return this.repository.Single(filter);
         }
 
+        public TEntity Single(Expression<Func<TEntity, bool>> filter, params Expression<Func<TEntity, object>>[] includeProperties)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(TEntity entity)
         {
             Debug.WriteLine("Updating");

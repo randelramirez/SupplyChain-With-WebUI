@@ -176,6 +176,7 @@
             self.addLine = function () { self.lines.push(new PurchaseOrderDetail()) };
             self.removeLine = function (line) { self.lines.remove(line) };
             self.save = function () {
+                var supplierId = self.supplier().Id;
                 var dataToSave = $.map(self.lines(), function (line) {
                     return line.product() ? {
                         //productName: line.product().Name,
@@ -193,7 +194,7 @@
                     method: "POST",
                     url: "@Url.Action("Create", "Purchases")",
                     //contentType: "application/json; charset=utf-8",
-                    data: { __RequestVerificationToken: antiForgeryToken, purchaseOrderHeader: dataToSave },
+                    data: { __RequestVerificationToken: antiForgeryToken, purchaseOrderDetails: dataToSave, supplierId: supplierId },
                     dataType: "json"
                 }).done(function (data) {
                     //after saving in the server

@@ -65,7 +65,12 @@ namespace SupplyChain.Infrastructure.Services
 
         public void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            this.repository.Update(entity);
+        }
+
+        public TEntity One(Expression<Func<TEntity, bool>> filter, params Expression<Func<TEntity, object>>[] includeProperties)
+        {
+            return this.repository.Single(filter, includeProperties);
         }
     }
 }

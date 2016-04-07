@@ -84,9 +84,21 @@ namespace SupplyChain.Infrastructure
             return this.dbset.Find(id);
         }
 
+
         public TEntity Single(Expression<Func<TEntity, bool>> filter)
         {
             return this.dbset.Single(filter);
+        }
+
+        public TEntity Single(Expression<Func<TEntity, bool>> filter, params Expression<Func<TEntity, object>>[] includeProperties)
+        {
+            var query = this.dbset.AsQueryable();
+            foreach (var includeProperty in includeProperties)
+            {
+                query = query.Include(includeProperty);
+            }
+            return query.Single(filter);
+
         }
 
         public void Update(TEntity entity)

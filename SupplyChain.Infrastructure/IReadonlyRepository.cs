@@ -11,6 +11,8 @@ namespace SupplyChain.Infrastructure
     {
         TEntity Single(Expression<Func<TEntity, bool>> filter);
 
+        TEntity Single(Expression<Func<TEntity, bool>> filter, params System.Linq.Expressions.Expression<Func<TEntity, object>>[] includeProperties);
+
         TEntity Find(int id);
 
         IEnumerable<TEntity> All(); 
