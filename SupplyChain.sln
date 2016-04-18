@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChain.Core", "SupplyChain.Core\SupplyChain.Core.csproj", "{08C1CE2A-4658-4293-9881-A8A2F94F80F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChain.Infrastructure", "SupplyChain.Infrastructure\SupplyChain.Infrastructure.csproj", "{93B46082-F8D5-4F2C-9613-6C3A16FCA8F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChain.WebUI", "SupplyChain.WebUI\SupplyChain.WebUI.csproj", "{F1B35CB6-5B4E-429F-8BE5-3BE5A7D54A2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChain.Infrastructure.Test", "SupplyChain.Infrastructure.Test\SupplyChain.Infrastructure.Test.csproj", "{8FBCA184-A1DC-4554-BA0A-161D4E4D758D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{F1B35CB6-5B4E-429F-8BE5-3BE5A7D54A2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1B35CB6-5B4E-429F-8BE5-3BE5A7D54A2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1B35CB6-5B4E-429F-8BE5-3BE5A7D54A2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FBCA184-A1DC-4554-BA0A-161D4E4D758D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FBCA184-A1DC-4554-BA0A-161D4E4D758D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FBCA184-A1DC-4554-BA0A-161D4E4D758D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FBCA184-A1DC-4554-BA0A-161D4E4D758D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

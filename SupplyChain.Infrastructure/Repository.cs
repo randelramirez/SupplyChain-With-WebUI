@@ -10,7 +10,7 @@ namespace SupplyChain.Infrastructure
 {
     public class Repository<TEntity> : ICrudRepository<TEntity> where TEntity : class, new()
     {
-        private SupplyChainContext context;
+        private ISupplyChainContext context;
         private IDbSet<TEntity> dbset;
 
         //public Repository(UnitOfWork unitOfWork)
@@ -19,8 +19,15 @@ namespace SupplyChain.Infrastructure
         //    this.dbset = this.context.Set<TEntity>();
         //}
 
-        public Repository(SupplyChainContext context)
+
+
+        public Repository(ISupplyChainContext context)
         {
+            if (context == null )
+            {
+                throw new Exception();
+            }
+
             this.context = context;
             this.dbset = this.context.Set<TEntity>();
         }
@@ -84,7 +91,6 @@ namespace SupplyChain.Infrastructure
             return this.dbset.Find(id);
         }
 
-
         public TEntity Single(Expression<Func<TEntity, bool>> filter)
         {
             return this.dbset.Single(filter);
@@ -103,7 +109,8 @@ namespace SupplyChain.Infrastructure
 
         public void Update(TEntity entity)
         {
-            this.context.Entry(entity).State = EntityState.Modified;
+            //(this.context as DbContext).Entry(entity).State = EntityState.Modified
+            this.context.SetEntityState<TEntity>(entity, EntityState.Modified);
         }
     }
 }

@@ -52,6 +52,8 @@
     <Compile Include="ADOSupplyChainContext.cs" />
     <Compile Include="CustomerRepository.cs" />
     <Compile Include="DataInitializer.cs" />
+    <Compile Include="IDbContext.cs" />
+    <Compile Include="ISupplyChainContext.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="OldCustomerRepository.cs" />
     <Compile Include="ICrudRepository.cs" />
