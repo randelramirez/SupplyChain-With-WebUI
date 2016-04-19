@@ -73,7 +73,7 @@
     <Compile Include="Services\EntityServiceTest.cs" />
     <Compile Include="Stubs\TestCustomerDbSet.cs" />
     <Compile Include="Doubles\TestDbAsyncQueryProvider.cs" />
-    <Compile Include="Stubs\FakeCrudRepository.cs" />
+    <Compile Include="Stubs\FakeCrudRepositoryTypeOfCustomer.cs" />
     <Compile Include="Stubs\FakeDbContext.cs" />
     <Compile Include="Doubles\TestDbAsync.cs" />
     <Compile Include="Doubles\TestDbAsyncEnumerator.cs" />
@@ -82,6 +82,7 @@
     <Compile Include="RepositoryTypeOfCustomerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Doubles\IFakeDbContext.cs" />
+    <Compile Include="EntityServiceTypeOfCustomerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SupplyChain.Core\SupplyChain.Core.csproj">

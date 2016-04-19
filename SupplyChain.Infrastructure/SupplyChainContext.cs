@@ -1,7 +1,5 @@
 ﻿using SupplyChain.Core;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System;
 
 namespace SupplyChain.Infrastructure
 {
@@ -39,6 +37,11 @@ namespace SupplyChain.Infrastructure
             this.Entry(entity).State = state;
         }
 
+        public int Save()
+        {
+            return base.SaveChanges();
+        }
+          
         // TO DO: TPH, TPT, current implementation is TPC, though it is not configured explicitly via the fluent api (model builder)
         //public DbSet<BusinessPartner> BusinessPartners { get; set; }
     }

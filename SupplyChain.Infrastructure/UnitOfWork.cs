@@ -9,7 +9,7 @@ namespace SupplyChain.Infrastructure
 {
     public class UnitOfWork/*<TEntity>*/ : IUnitOfWork, IDisposable /* where TEntity: class, new()*/
     {
-        public readonly SupplyChainContext context;
+        public readonly ISupplyChainContext context;
         /*private ICrudRepository<TEntity> repository;*/
 
         public UnitOfWork(SupplyChainContext context /*ICrudRepository<TEntity> repository*/) 
@@ -25,12 +25,12 @@ namespace SupplyChain.Infrastructure
 
         public void Save()
         {
-            this.context.SaveChanges();
+            this.context.Save();
         }
 
         public void Dispose()
         {
-            this.context.Dispose();
+            (this.context as IDisposable).Dispose();
         }
     }
 }

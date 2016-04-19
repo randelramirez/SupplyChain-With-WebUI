@@ -13,6 +13,6 @@ namespace SupplyChain.Infrastructure
 
         void SetEntityState<T> (T Entity, EntityState state) where T: class, new();
 
-        //save
+        int Save();
     }
 }

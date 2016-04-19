@@ -19,8 +19,6 @@ namespace SupplyChain.Infrastructure
         //    this.dbset = this.context.Set<TEntity>();
         //}
 
-
-
         public Repository(ISupplyChainContext context)
         {
             if (context == null )

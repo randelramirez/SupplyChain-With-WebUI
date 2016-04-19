@@ -23,5 +23,6 @@ namespace SupplyChain.Infrastructure
         IDbSet<SalesOrderHeader> SalesOrderHeaders { get; set; }
 
         IDbSet<SalesOrderDetail> SalesOrderDetails { get; set; }
+
     }
 }

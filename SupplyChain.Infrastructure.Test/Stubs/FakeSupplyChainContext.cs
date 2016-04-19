@@ -44,5 +44,10 @@ namespace SupplyChain.Infrastructure.Test.Stubs
             
         }
 
+        public int Save()
+        {
+            return base.SaveChanges();
+        }
+
     }
 }

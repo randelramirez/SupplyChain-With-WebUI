@@ -50,7 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ADOSupplyChainContext.cs" />
-    <Compile Include="CustomerRepository.cs" />
     <Compile Include="DataInitializer.cs" />
     <Compile Include="IDbContext.cs" />
     <Compile Include="ISupplyChainContext.cs" />
