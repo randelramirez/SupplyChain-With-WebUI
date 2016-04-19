@@ -41,6 +41,7 @@ namespace SupplyChain.Infrastructure.Test.Stubs
             // check if entity is typeof Customer
             // if I implement something like this then I would need a helper method to check for every type of accessible dbset in this context
             //(entity as Customer).Name = "Updated";
+            
         }
 
     }

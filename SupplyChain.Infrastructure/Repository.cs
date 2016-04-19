@@ -25,7 +25,7 @@ namespace SupplyChain.Infrastructure
         {
             if (context == null )
             {
-                throw new Exception();
+                throw new ArgumentNullException();
             }
 
             this.context = context;
