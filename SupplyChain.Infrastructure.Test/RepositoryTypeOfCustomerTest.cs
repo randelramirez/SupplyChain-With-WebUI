@@ -40,6 +40,15 @@ namespace SupplyChain.Infrastructure.Test
         }
 
         [TestMethod]
+        public void Test4()
+        {
+            this.Setup();
+            var actual = this.customerRepository.All(c => c.Orders).Count();
+            var expected = 3;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
         public void Test2()
         {
             this.Setup();
@@ -64,6 +73,31 @@ namespace SupplyChain.Infrastructure.Test
             var expected = "Test1 updated";
             this.customerRepository.Update(entity);
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Test5()
+        {
+            this.Setup();
+            //var entity = this.customerRepository.Find(1);
+            ////var actual = entity.Name + " updated";
+            ////var expected = "Test1 updated";
+            //var actual = "Updated";
+            //this.customerRepository.Update(entity);
+            //Assert.AreEqual(entity.Name, actual);
+
+            //var entity = this.customerRepository.Find(1);
+            //var actual = entity.Name + " updated";
+            //var expected = "Test1 updated";
+            //this.customerRepository.Update(entity);
+            //Assert.AreEqual(expected, actual);
+
+            using (ShimsContext.Create())
+            {
+                SupplyChain.Infrastructure.Fakes.ShimSupplyChainContext.AllInstances.CustomersGet = (x) => { var y = new TestCustomerDbSet(); y.Add(new Customer { }); return y; };
+                SupplyChainContext context = new SupplyChainContext();
+                Console.WriteLine(context.Customers.Count());
+            }
         }
     }
 }

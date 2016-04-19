@@ -43,6 +43,5 @@ namespace SupplyChain.Infrastructure.Test.Stubs
             //(entity as Customer).Name = "Updated";
         }
 
-
     }
 }
