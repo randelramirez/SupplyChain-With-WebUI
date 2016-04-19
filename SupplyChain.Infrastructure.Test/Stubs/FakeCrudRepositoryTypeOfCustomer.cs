@@ -16,10 +16,10 @@ namespace SupplyChain.Infrastructure.Test.Stubs
         public FakeCrudRepositoryTypeOfCustomer()
         {
             this.customers = new List<Customer>();
-            customers.Add(new Customer { Name = "Microsoft", Address = new Address { State = "Washington", Street = "Seattle", ZipCode = "192" } });
-            customers.Add(new Customer { Name = "Telerik", Address = new Address { State = "California", Street = "Golden State", ZipCode = "015" } });
-            customers.Add(new Customer { Name = "Google", Address = new Address { State = "California", Street = "Mountain View", ZipCode = "010" } });
-            customers.Add(new Customer { Name = "Facebook", Address = new Address { State = "California", Street = "Cupertino", ZipCode = "211" } });
+            customers.Add(new Customer { Id = 1, Name = "Microsoft", Address = new Address { State = "Washington", Street = "Seattle", ZipCode = "192" } });
+            customers.Add(new Customer { Id = 2, Name = "Telerik", Address = new Address { State = "California", Street = "Golden State", ZipCode = "015" } });
+            customers.Add(new Customer { Id = 3, Name = "Google", Address = new Address { State = "California", Street = "Mountain View", ZipCode = "010" } });
+            customers.Add(new Customer { Id = 4, Name = "Facebook", Address = new Address { State = "California", Street = "Cupertino", ZipCode = "211" } });
         }
 
         public void Add(Customer entity)

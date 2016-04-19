@@ -71,6 +71,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Services\EntityServiceTest.cs" />
+    <Compile Include="Stubs\FakeUnitOfWork.cs" />
     <Compile Include="Stubs\TestCustomerDbSet.cs" />
     <Compile Include="Doubles\TestDbAsyncQueryProvider.cs" />
     <Compile Include="Stubs\FakeCrudRepositoryTypeOfCustomer.cs" />
