@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SupplyChain.Infrastructure.Services
 {
     public class EntityService<TEntity> : IEntityService<TEntity> where TEntity : class, new()
     {
         private ICrudRepository<TEntity> repository;
-
         private IUnitOfWork unitOfWork;
 
         public EntityService(ICrudRepository<TEntity> repository, IUnitOfWork unitOfWork)
         {
+            if (repository == null || unitOfWork == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             this.repository = repository;
             this.unitOfWork = unitOfWork;
         }

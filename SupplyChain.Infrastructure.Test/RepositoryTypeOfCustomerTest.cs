@@ -31,7 +31,7 @@ namespace SupplyChain.Infrastructure.Test
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void RepositoryTypeOfCustomer_ConstructorGivenNullForContextParameter_ThrowsException()
+        public void RepositoryTypeOfCustomer_ConstructorGivenNullForContextParameter_ThrowsArgumentNullException()
         {
             this.customerRepository = new Repository<Customer>(null);
             Assert.IsTrue(true);

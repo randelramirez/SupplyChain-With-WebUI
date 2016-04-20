@@ -21,6 +21,8 @@ namespace SupplyChain.Infrastructure.Services
 
         TEntity One(Expression<Func<TEntity, bool>> filter, params Expression<Func<TEntity, object>>[] includeProperties);
 
+        TEntity Find(int id);
+
         void Create(TEntity entity);
         
         void Update(TEntity entity);
