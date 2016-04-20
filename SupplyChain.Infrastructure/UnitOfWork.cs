@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace SupplyChain.Infrastructure
 {
-    public class UnitOfWork/*<TEntity>*/ : IUnitOfWork, IDisposable /* where TEntity: class, new()*/
+    public class UnitOfWork : IUnitOfWork, IDisposable
     {
         public readonly ISupplyChainContext context;
         /*private ICrudRepository<TEntity> repository;*/
 
-        public UnitOfWork(SupplyChainContext context /*ICrudRepository<TEntity> repository*/) 
+        public UnitOfWork(ISupplyChainContext context) 
         {
             if (context == null)
             {
@@ -20,7 +20,6 @@ namespace SupplyChain.Infrastructure
             }
 
             this.context = context;
-            
         }
 
         public void Save()
